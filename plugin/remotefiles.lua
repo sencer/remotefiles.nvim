@@ -1,6 +1,7 @@
 if vim.g.loaded_remotefiles ~= nil then
 	return
 end
+vim.g.loaded_remotefiles = true
 
 local function parse_scp_filename(fname)
 	local name = fname:sub(7)
