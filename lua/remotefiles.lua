@@ -35,4 +35,3 @@ M.register = function(pattern, read_cmd_fn, write_cmd_fn)
 end
 
 return M
-
