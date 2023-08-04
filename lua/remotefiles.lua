@@ -34,4 +34,15 @@ M.register = function(pattern, read_cmd_fn, write_cmd_fn)
 	end
 end
 
+M.register_local = function(pattern, transform_fn)
+	vim.api.nvim_create_autocmd("BufReadCmd", {
+		group = "RemoteFiles",
+		pattern = pattern,
+    nested = true,
+		callback = function(args)
+      vim.cmd("e " .. transform_fn(args.file))
+		end,
+	})
+end
+
 return M
